@@ -1,27 +1,61 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\EncuestaController;
+use App\Http\Controllers\ExamenController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/formulario/create', [RegistroController::class, 'create']);
+Route::post('/formulario', [RegistroController::class, 'store']);
+Route::post('/formulario/create/fetch', [RegistroController::class, 'fetch'])->name('registroController.fetch');
 
+// RUTAS PROTEGIDAS
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/formulario', [RegistroController::class, 'index']);
+    Route::get('/formulario/{id}/edit', [RegistroController::class, 'edit']);
+    Route::put('/formulario/{id}', [RegistroController::class, 'update']);
+    Route::delete('/formulario/{id}', [RegistroController::class, 'destroy']);
 });
 
+Route::post('/formulario/asistencia', [AsistenciaController::class, 'store'])
+    ->name('asistencia.store')
+    ->middleware('auth');
+Route::get('/registroasistencia',[AsistenciaController::class,'index'])
+    ->middleware('auth');
 
-Auth::routes();
+Route::post('/formulario/encuesta', [EncuestaController::class, 'store'])
+    ->name('encuesta.store')
+    ->middleware('auth');
+Route::get('/evaluacion', function () {
+    return view('formulario.encuesta');
+})->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/formulario/examen', [ExamenController::class, 'store'])
+    ->name('examen.store')
+    ->middleware('auth');
+Route::get('/encuesta', function () {
+    return view('formulario.examen');
+})->middleware('auth');
 
-Auth::routes();
+    //Vistas estáticas => Esta OK
+Route::prefix('content')->group(function () {
+    //index -> home
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::view('/', 'contenido/home');
+
+    Route::view('/contactos', 'contenido/contactos');
+    Route::view('/objetivos', 'contenido/objetivos');
+    Route::view('/ponentes', 'contenido/ponentes');
+    Route::view('/leyenda', 'contenido/leyenda');
+    Route::view('/preguntas', 'contenido/preguntas');
+    Route::view('/programa', 'contenido/programa');
+    Route::view('/avisoprivacidad', 'contenido/aviso');
+    Route::view('/terminosycondiciones', 'contenido/terminos');
+
+    // Route::view('/read', 'contenido/read')->middleware('auth');
+});
