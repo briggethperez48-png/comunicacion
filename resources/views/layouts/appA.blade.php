@@ -18,6 +18,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="{{ asset('/build/assets/web.css') }}" rel="stylesheet">
+    <link href="{{ asset('/build/assets/principal.css') }}" rel="stylesheet">
 </head>
 <body>
         <x-theHead></x-theHead>
@@ -27,5 +28,18 @@
         </main>
     </section>
         <x-theFooter></x-theFooter>
+
+    <script>
+        const navega = document.querySelector('.navega')
+        const nav = document.querySelector('.nav')
+        const shadowH = document.querySelector('.header')
+        const margen = document.querySelector('.margen')
+            navega.addEventListener('click',()=>{
+                navega.classList.toggle("active")
+                nav.classList.toggle('activo')
+                shadowH.classList.toggle('activo')
+                margen.classList.toggle('activo')
+            })
+    </script>
 </body>
 </html>

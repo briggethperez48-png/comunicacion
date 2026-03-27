@@ -58,14 +58,3 @@
         </div>
     </section>
 </section>
-
-<script>
-    const navega = document.querySelector('.navega')
-    const nav = document.querySelector('.nav')
-    const shadowH = document.querySelector('.header')
-        navega.addEventListener('click',()=>{
-            navega.classList.toggle("active")
-            nav.classList.toggle('activo')
-            shadowH.classList.toggle('activo')
-        })
-</script>
