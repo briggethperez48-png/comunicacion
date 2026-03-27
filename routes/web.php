@@ -28,6 +28,7 @@ Route::post('/formulario/asistencia', [AsistenciaController::class, 'store'])
 Route::get('/registroasistencia',[AsistenciaController::class,'index'])
     ->middleware('auth');
 
+    //Por error, están invertidos. Encuesta->Evaluación; Examen->Encuesta. Las vistas están bien. 
 Route::post('/formulario/encuesta', [EncuestaController::class, 'store'])
     ->name('encuesta.store')
     ->middleware('auth');
@@ -45,17 +46,18 @@ Route::get('/encuesta', function () {
     //Vistas estáticas => Esta OK
 Route::prefix('content')->group(function () {
     //index -> home
-
     Route::view('/', 'contenido/home');
 
     Route::view('/contactos', 'contenido/contactos');
     Route::view('/objetivos', 'contenido/objetivos');
     Route::view('/ponentes', 'contenido/ponentes');
-    Route::view('/leyenda', 'contenido/leyenda');
     Route::view('/preguntas', 'contenido/preguntas');
     Route::view('/programa', 'contenido/programa');
     Route::view('/avisoprivacidad', 'contenido/aviso');
     Route::view('/terminosycondiciones', 'contenido/terminos');
-
-    // Route::view('/read', 'contenido/read')->middleware('auth');
 });
+
+//Nimodillo
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');

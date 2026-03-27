@@ -1,7 +1,7 @@
 @extends('layouts.appA')
 @section('title', 'Inicio')
 @section('content')
-
-Holiiiii
-
+    <div>
+        hola
+    </div>
 @endsection
