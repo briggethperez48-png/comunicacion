@@ -17,8 +17,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="{{ asset('/build/assets/web.css') }}" rel="stylesheet">
-    <link href="{{ asset('/build/assets/principal.css') }}" rel="stylesheet">
+    <link href="{{ asset('/build/css/web.css') }}" rel="stylesheet">
+    <link href="{{ asset('/build/css/principal.css') }}" rel="stylesheet">
 </head>
 <body>
         <x-theHead></x-theHead>

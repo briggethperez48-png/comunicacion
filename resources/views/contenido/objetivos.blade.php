@@ -2,15 +2,15 @@
 @section('title', 'Objetivos')
 @section('content')
     <section class="margen">
-        <div class="mt-5 mb-5 ml-4 mr-4 shadow rounded">
-            <div class="m-4">
+        <div class="mt-5 ml-4 mr-4 shadow rounded">
+            <div class="mx-4 mt-4">
                     <div class="objet text-center">
-                        <h1>
+                        <h1 class="Objetivos">
                             Objetivos
                         </h1>
                     </div>
                     <div class="objetivoGen">
-                        <h2 class="objet text-center">
+                        <h2 class="object text-center">
                             Objetivo General
                         </h2>
                         <p>
@@ -18,29 +18,29 @@
                         </p>
                     </div>
                     <div class="objetivosEsp d-flex justify-content-start">
-                        <ul>
-                            <h2 class="objet text-center">
+                        <ol>
+                            <h2 class="object text-center">
                                 Objetivos Específicos
                             </h2>
-                            <li type="I" class="objetivo">
+                            <div  class="objetivo">
                                 Analizar el panorama, los mecanismos de transmisión y el impacto de las IAAS, para sustentar la higiene de manos como medida clave de prevención.
-                            </li>
-                            <li type="I" class="objetivo">
+                            </div>
+                            <div  class="objetivo">
                                 Aplicar el modelo de los 5 momentos de la higiene de manos, identificando indicaciones críticas y errores frecuentes, para mejorar la adherencia en la práctica clínica.
-                            </li>
-                            <li type="I" class="objetivo">
+                            </div>
+                            <div  class="objetivo">
                                 Ejecutar correctamente la técnica de higiene de manos, considerando su duración, indicaciones y el uso racional de guantes, para garantizar su efectividad en la reducción de microorganismos.
-                            </li>
-                            <li type="I" class="objetivo">
+                            </div>
+                            <div  class="objetivo">
                                 Integrar la higiene de manos dentro de las acciones esenciales del programa de prevención y control de infecciones, fortaleciendo la infraestructura, el monitoreo y la responsabilidad institucional.
-                            </li>
-                            <li type="I" class="objetivo">
+                            </div>
+                            <div  class="objetivo">
                                 Promover el cambio conductual mediante estrategias basadas en la psicología del comportamiento para mejorar la adherencia a la higiene de manos.
-                            </li>
-                            <li type="I" class="objetivo">
+                            </div>
+                            <div  class="objetivo">
                                 Evaluar el impacto de la Estrategia Multimodal de Higiene de las Manos
-                            </li>
-                        </ul>
+                            </div>
+                        </ol>
                     </div>
                 </div>
             </section>
