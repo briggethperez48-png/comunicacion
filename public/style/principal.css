@@ -1,0 +1,263 @@
+.Enca h1 {
+    font-weight: 900;
+    color: #55585a;
+}
+.Enca h2 {
+    font-weight: 500;
+    color: #55585a;
+}
+.objetivoGen{
+    font-size: 20px;
+}
+.objetivosEsp .objetivo,
+.preguntasFrec .pregunta{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.objetivosEsp,
+.preguntasFrec{
+    padding-bottom: 10px;
+}
+.Objetivos {
+    font-weight: 800;
+    color: #55585a;
+}
+.object {
+    font-weight: 800;
+    color: #73cae6;
+}
+.objetivo {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    padding: 5px;
+    box-shadow: -5px 5px 0 rgba(88,89,90,1);
+    margin-bottom: 10px;
+
+
+    transition: 200ms ease-in-out;
+}  
+.objetivo:hover {
+    cursor: pointer;
+    background-color: #55585a;
+    color: #fffae9;
+
+
+    transform: translate(10px,-10px);
+    box-shadow: -8px 8px 0 rgba(38,108,180,1);
+}
+
+
+.ponentes{
+        margin-top: 50px;
+        gap: 10%;
+        display: flex;
+        flex-flow: row;
+
+
+        justify-content: center;
+        align-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+    }
+        .ponentes>div,
+        .ponentes button{
+            width: 30%;
+            border-radius: 100%;
+            background-color: transparent;
+            border-style: none;
+
+
+            justify-self: center;
+            text-align: center;
+        }
+        .ponentes>div{
+            text-align: center;
+        }
+        .ponentes{
+            text-align: center;
+        }
+        .ponentes img,
+        .ponentes button{
+            text-align: center;
+            width: 80%;
+        }
+        .ponentes{
+            margin-bottom: 30px;
+        }
+        .ponentes img:hover{
+            box-shadow: 0px 0px 10px rgba(0,0,0, 0.4);
+        }
+       
+        .ponentes button h3{
+            text-align: center;
+            color: #9d2148;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .ponentes button h3:hover{
+            text-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
+        }
+        .ponentes button h3:hover{
+            color: #9d2148;
+            font-weight: 700;
+            border-bottom: #9d2148;
+            text-decoration: underline;
+        }
+        .ponentes .ponente .popOpen img,
+        .ponentes .ponenteA .popOpen img{
+            border-radius: 0;
+            border: none;
+
+            animation: popOpen 0.3s ease-out forwards;
+        }   @keyframes popOpen{
+                from{
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+                to{
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        .ponentes .ponente .popOpen,
+        .ponentes .ponenteA .popOpen{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            border-radius: 0;
+            border: none;
+            background-color: rgba(0,0,0, 0.6);
+            background-size: cover;
+            align-content: center;
+            justify-content: center;
+            justify-items: center;
+
+
+            width: auto;
+            height: 100vh;
+        }
+        .ponentes .popOpen .popOut{
+            background-color: #b28e5c;
+            border-radius: 10px;
+            margin-top: 3px;
+            padding: 7px 0;
+            box-shadow: 5px 5px 5px rgba(0,0,0, 0.4);
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+
+
+            animation: popOpen 0.3s ease-out forwards;
+        }  
+        .ponentes .popOpen .popOut:hover{
+            box-shadow: 5px 5px 10px rgba(0,0,0, 0.4);
+            text-shadow: 0px 0px 8px rgba(0,0,0, 0.6);
+            padding: 9px 0;
+        }
+        .ponentes .info h3{
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .ponentes .info .ocup{
+            color: #55585a;
+        }
+        .ponentes .info .lugar{
+            color: #b28e5c;
+        }
+
+    .ponentes{
+        display: flex;
+        flex-flow: row;
+    }
+    .ponente .popOpen .contentPop {
+        position: absolute;
+        opacity: 0;
+    }
+
+    
+
+
+
+
+
+    /*Responsive*/
+        /*Desktop*/
+    @media (min-width: 1200px){
+        .ponentes .ponente .popOpen img,
+        .ponentes .popOpen .popOut,
+        .ponentes .ponenteA .popOpen img{
+            width: 90%;
+        }
+    }
+        /*Movil*/
+    @media (max-width: 768px){
+        .ponente .popOpen .diaPon {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .ponente .popOpen .contentPop{
+        position: relative;
+        opacity: 1;
+
+        background-color: #fff;
+        height: 60%;
+        width: 80%;
+        margin: 0 10% 0 10%;
+
+        display: grid;
+
+        animation: popOpen 0.3s ease-out forwards;
+    }
+    .ponente .popOpen .contentPop img:hover{
+        box-shadow:none;
+    }
+        .ponente .popOpen .contentPop .innerPop {
+            margin: 0 5% 0 5%;
+        }
+            .ponente .popOpen .contentPop .innerPop .nomPonente h1,
+            .ponente .popOpen .contentPop .innerPop .nomPonente h2 {
+                text-align: left;
+                font-size: 20px;
+            }
+            .ponente .popOpen .contentPop .innerPop .nomCurso h1 {
+                font-size: 25px;
+            }
+            .ponente .popOpen .contentPop .innerPop .nomCurso h2 {
+                font-size: 20px;
+            }
+        .ponente .popOpen .contentPop .innerImg {
+            margin-top: -25%;
+            margin-bottom: -15%;
+        }
+
+        .ponentes{
+            margin-top: 70px;
+            justify-content: baseline;
+            align-content: center;
+        }
+        .ponentes{
+            display: flex;
+            flex-flow: column; 
+            justify-self: center;
+        }
+        .ponentes img,
+        .ponentes button,
+        .ponentes .info .ocup,
+        .ponentes .info .lugar{
+            text-align: center;
+            width: 200px;
+            justify-content: center;
+        }
+    }
+    
+@media only screen and (max-width: 480px){
+        .ponentes{
+        display: flex;
+        flex-flow: column; 
+        justify-self: center;
+        }
+    }
