@@ -15,7 +15,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <p class="mb-1"><strong>Horario:</strong> 08:00 a 15:30 horas</p>
-                                <p class="mb-1"><strong>Créditos:</strong> 1 crédito (7.5h ponencia / 30min informativo)</p>
+                                <p class="mb-1"><strong>Créditos:</strong> 1 crédito</p>
                                 <p class="mb-1"><strong>Modalidad:</strong> Virtual (Zoom por Telmex)</p>
                             </div>
                             <div class="col-md-6 border-start-md">

@@ -48,10 +48,10 @@
                         <a class="a" href="{{url('/registroasistencia')}}">Asistencia</a>
                     </li>
                     <li class="li">
-                        <a class="a" href="{{url('/content/contacto')}}">Contacto</a>
+                        <a class="a" href="{{url('/content/contactos')}}">Contacto</a>
                     </li>
                     <li class="li">
-                        <a class="a" href="{{url('/content/terminos')}}">Términos</a>
+                        <a class="a" href="{{url('/content/terminosycondiciones')}}">Términos</a>
                     </li>
                 </ul>
             </nav>

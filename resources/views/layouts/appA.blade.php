@@ -13,12 +13,14 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="{{ asset('/style/web.css') }}" rel="stylesheet">
     <link href="{{ asset('/style/principal.css') }}" rel="stylesheet">
+    <link href="{{ asset('/style/form.css') }}" rel="stylesheet">
 </head>
 <body>
         <x-theHead></x-theHead>
@@ -39,6 +41,14 @@
                 nav.classList.toggle('activo')
                 shadowH.classList.toggle('activo')
                 margen.classList.toggle('activo')
+            })
+    </script>
+    <script>
+        const cuestion = document.querySelector('.cuestion')
+        const respuesta = document.querySelector('.respuesta')
+            cuestion.addEventListener('click',()=>{
+                cuestion.classList.toggle("activo")
+                respuesta.classList.toggle('activo')
             })
     </script>
 </body>

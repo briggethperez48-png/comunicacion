@@ -26,16 +26,14 @@
                     <!-- Contenido -->
                 <div class="mt-2">
                         <!-- Introduccion -->
-                    <!-- <div class="text text-muted mx-4 text-justify">
+                    <div class="text text-muted mx-4" style="text-align: justify; font-size:18px;">
                         <p>
-                            La migración de la mariposa monarca, desde los bosques de Canadá 
-                            hasta los santuarios de Michoacán, simboliza un viaje de memoria biológica, 
-                            transformación y retorno al origen. Este recorrido inspira el lema 
-                            <span>“Trascender en Paz”</span> y refleja los valores de la voluntad anticipada: 
-                            la libertad de decidir con autonomía y dignidad sobre los cuidados y tratamientos 
-                            al final de la vida.
+                            <b>La Secretaría de Salud Pública de la Ciudad de México</b> invita a todo
+                            el personal de salud operativo, responsables de calidad, líderes de servicios
+                            y enlaces de PCI e interesados al Semianrio <b><i>Manos que cuidan, manos que salvan:
+                            la seguridad del paciente comienza contigo.</i></b>
                         </p>
-                    </div> -->
+                    </div>
                         <!-- InfoGen -->
                     <div class="row mt-2 mx-2 mx-md-4 text-muted"
                             style="gap:20px;">
@@ -45,7 +43,7 @@
                             <div class="">
                                 <h4>
                                     <i class="fa fa-globe"></i>
-                                    Modalidad Híbrida
+                                    Modalidad Virtual  (Zoom)
                                 </h4>
                                         <p>
                                             <a href="http://eventos.salud.cdmx.gob.mx/">
@@ -63,12 +61,19 @@
                                     Lapso
                                 </h4>
                                         <p>
-                                            25 al 27 de marzo
+                                            22 de abril
                                         <br>
+                                            De 08:00 a 15:30
                                         </p>
                             </div>
                             <div class="">
-                                    <h4>Evento gratuito</h4>
+                                    <h4>
+                                        <i class="fa-solid fa-pen-nib"></i>
+                                        Evento gratuito
+                                    </h4>
+                                        <p>
+                                            Créditos: 1 (7 horas y media)
+                                        </p>
                             </div>
                         </div>
                         <!--Columna 2-->

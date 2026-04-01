@@ -33,7 +33,7 @@ class RegistroController extends Controller
         $presenciales = Registro::where('Modalidad','PRESENCIAL')->count();
         $cuposDisponibles = 250 - $presenciales;
        
-        return view('formulario.create', compact(
+        return view('formularios.registro', compact(
             'institucion_list',
             'presenciales',
             'cuposDisponibles'

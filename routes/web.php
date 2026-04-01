@@ -48,7 +48,7 @@ Route::prefix('content')->group(function () {
     //index -> home
     Route::view('/', 'contenido/home');
 
-    Route::view('/contactos', 'contenido/contactos');
+    Route::view('/contactos', 'contenido/contacto');
     Route::view('/objetivos', 'contenido/objetivos');
     Route::view('/ponentes', 'contenido/ponentes');
     Route::view('/preguntas', 'contenido/preguntas');
