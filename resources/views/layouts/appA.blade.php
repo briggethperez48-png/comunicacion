@@ -44,12 +44,17 @@
             })
     </script>
     <script>
-        const cuestion = document.querySelector('.cuestion')
-        const respuesta = document.querySelector('.respuesta')
-            cuestion.addEventListener('click',()=>{
-                cuestion.classList.toggle("activo")
-                respuesta.classList.toggle('activo')
-            })
+        const preguntas = document.querySelectorAll('.pregunta');
+
+        preguntas.forEach(pregunta => {
+            const cuestion = pregunta.querySelector('.cuestion');
+            const respuesta = pregunta.querySelector('.respuesta');
+
+            cuestion.addEventListener('click', () => {
+                cuestion.classList.toggle("activo");
+                respuesta.classList.toggle('activo');
+            });
+        });
     </script>
 </body>
 </html>

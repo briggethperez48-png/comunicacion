@@ -237,18 +237,20 @@ a:hover {
 .preguntasFrec .pregunta .respuesta{
     position: relative;
     z-index: 1;
-    margin: -150px 10px 10px 10px;
-    padding: 10px 8px 0 8px;
+    margin: 0 10px;
+    padding: 0 8px;
 
-    border-style: solid;
+    order: 2px solid transparent;
     border-top: none;
     border-radius: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-width: 2px;
     border-color: #fff;
-    color: #fff;
-    transition: 200ms ease-in;
+    color: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 400ms ease-in-out;
     /* transform: translateY(-100px); */
     opacity: 0;
 }  
@@ -264,6 +266,8 @@ a:hover {
     border-width: 2px;
     border-color: #73cae6;
     color: #55585a;
+
+    max-height: 500px;
     opacity: 1;
 }
 
@@ -291,10 +295,16 @@ a:hover {
         position: relative;
         opacity: 1;
 
+        /* background-image: url('/public/img/higieneV.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed; */
         background-color: #fff;
         height: 60%;
         width: 80%;
-        margin: 0 10% 0 10%;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.6);
+        margin: 10% 10% 0 10%;
 
         display: grid;
 
@@ -304,7 +314,7 @@ a:hover {
         box-shadow:none;
     }
         .ponente .popOpen .contentPop .innerPop {
-            margin: 0 5% 0 5%;
+            margin: -5% 5% 0 5%;
         }
             .ponente .popOpen .contentPop .innerPop .nomPonente h1,
             .ponente .popOpen .contentPop .innerPop .nomPonente h2 {
@@ -319,7 +329,6 @@ a:hover {
             }
         .ponente .popOpen .contentPop .innerImg {
             margin-top: -25%;
-            margin-bottom: -15%;
         }
 
         .ponentes{
