@@ -19,7 +19,8 @@ return new class extends Migration
             $datosEx->string('pregunta2');
             $datosEx->string('pregunta3');
             $datosEx->text('sugerencias')->nullable();
-
+            $datosEx->string('escala')
+                ->nullable();
             $datosEx->string('folio');
             $datosEx->timestamps();
         });

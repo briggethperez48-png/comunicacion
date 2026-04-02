@@ -14,6 +14,7 @@ class Examen extends Model
     'pregunta2',
     'pregunta3',
     'sugerencias',
+    'escala',
     'folio'
 ];
 }

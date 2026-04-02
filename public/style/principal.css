@@ -9,6 +9,9 @@ a:hover {
     color: #266cb4;
     font-weight: 600;
 }
+p {
+    font-size: 18px;
+}
 .Enca h1 {
     font-weight: 900;
     color: #55585a;

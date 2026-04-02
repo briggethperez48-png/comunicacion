@@ -39,9 +39,6 @@
                         <a class="a" href="{{url('/encuesta')}}">Encuesta</a>
                     </li>
                     <li class="li">
-                        <a class="a" href="{{url('/evaluacion')}}">Evaluación</a>
-                    </li>
-                    <li class="li">
                         <a class="a" href="{{url('/content/preguntas')}}">Dudas</a>
                     </li>
                     <li class="li">

@@ -30,13 +30,9 @@ class RegistroController extends Controller
         $institucion_list = DB::table('instituciones')
                         ->select('idInsti','instiPro')
                         ->get();
-        $presenciales = Registro::where('Modalidad','PRESENCIAL')->count();
-        $cuposDisponibles = 250 - $presenciales;
        
         return view('formularios.registro', compact(
             'institucion_list',
-            'presenciales',
-            'cuposDisponibles'
         ));
     }
 
@@ -98,7 +94,6 @@ class RegistroController extends Controller
             ],
             'Edad' => 'required|numeric',
             'Sexo' => 'required',
-            'Modalidad' => 'required',
             'Numero' => 'required|max:20', 
             'Eres' => 'required',
             'email' => 'required|email|unique:users,email', // Evita correos duplicados
@@ -111,28 +106,11 @@ class RegistroController extends Controller
 
         $datosUsuario = request()->except('_token','email','password');
         
-        $presenciales = registro::where('Modalidad','PRESENCIAL')->count();
-        if($datosUsuario['Modalidad'] == 'PRESENCIAL' && $presenciales >= 250){
-                $datosUsuario['Modalidad'] = 'VIRTUAL';
-            return redirect()->back()
-                ->with('mensaje','Los cupos presenciales ya se llenaron. Se te registró en modalidad VIRTUAL.')
-                ->withInput();
-        }
 
         foreach ($datosUsuario as $key => $value) {
             if($key != 'email' && $key != 'password'){
                 $datosUsuario[$key] = strtoupper($value);
             }
-        }
-
-        //Modalidad
-        $presenciales = Registro::where('Modalidad','PRESENCIAL')->count();
-        if($presenciales >= 250){
-            $datosUsuario['Modalidad'] = 'VIRTUAL';
-
-            return redirect()->back()
-                ->with('mensaje','SE ALCANZÓ EL LÍMITE DE 40 INSCRIPCIONES PRESENCIALES. SE TE INSCRIBIÓ EN MODALIDAD VIRTUAL.')
-                ->withInput();
         }
 
         $user = User::create([
@@ -173,14 +151,9 @@ class RegistroController extends Controller
                         ->select('unidad')
                         ->get();
 
-        $presenciales = Registro::where('Modalidad','PRESENCIAL')->count();
-        $cuposDisponibles = 250 - $presenciales;
-
         return view('formulario.edit', compact(
                                         'emplead1',
                                         'institucion_list',
-                                        'presenciales',
-                                        'cuposDisponibles',
                                         'unidades_list'
                                         ))
                                         
@@ -203,7 +176,6 @@ class RegistroController extends Controller
             'Pais' => 'required|string|max:75',
             'Edad' => 'required|integer|min:18|max:80',
             'Sexo' => 'required',
-            'Modalidad' => 'required',
             'Numero' => 'required|integer|digits:10',
             'Eres' => 'required|string',
             'email' => 'required|email|max:50',

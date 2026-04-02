@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\AsistenciaController;
-use App\Http\Controllers\EncuestaController;
 use App\Http\Controllers\ExamenController;
 
 Route::get('/', function () {
@@ -22,25 +21,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/formulario/{id}', [RegistroController::class, 'destroy']);
 });
 
-Route::post('/formulario/asistencia', [AsistenciaController::class, 'store'])
+Route::post('/formularios/asistencia', [AsistenciaController::class, 'store'])
     ->name('asistencia.store')
     ->middleware('auth');
 Route::get('/registroasistencia',[AsistenciaController::class,'index'])
     ->middleware('auth');
 
     //Por error, están invertidos. Encuesta->Evaluación; Examen->Encuesta. Las vistas están bien. 
-Route::post('/formulario/encuesta', [EncuestaController::class, 'store'])
-    ->name('encuesta.store')
-    ->middleware('auth');
-Route::get('/evaluacion', function () {
-    return view('formulario.encuesta');
-})->middleware('auth');
+// Route::post('/formulario/encuesta', [EncuestaController::class, 'store'])
+//     ->name('encuesta.store')
+//     ->middleware('auth');
+// Route::get('/evaluacion', function () {
+//     return view('formularios.encuesta');
+// })->middleware('auth');
 
 Route::post('/formulario/examen', [ExamenController::class, 'store'])
     ->name('examen.store')
     ->middleware('auth');
 Route::get('/encuesta', function () {
-    return view('formulario.examen');
+    return view('formularios.examen');
 })->middleware('auth');
 
     //Vistas estáticas => Esta OK
@@ -58,6 +57,8 @@ Route::prefix('content')->group(function () {
 });
 
 //Nimodillo
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+// Route::post('login', [LoginController::class, 'login']);   
+// Route::get('/login', function () {
+//     return view('auth.login');
+// })->name('login');
+Auth::routes();

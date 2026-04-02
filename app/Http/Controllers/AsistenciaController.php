@@ -9,45 +9,60 @@ use Carbon\Carbon;
 
 class AsistenciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    private $horaInicioAsistencia = '17:20:00'; 
+    private $timezone = 'America/Mexico_City'; // La definimos como propiedad para no repetir
+
     public function index()
     {
-        $inicioEvento = \Carbon\Carbon::parse('2026-03-18')->startOfDay();
-        $hoy = now()->startOfDay();
+        $ahora = Carbon::now($this->timezone);
+        $hoy = $ahora->copy()->startOfDay();
         
-        // diffInDays nos dará 0 el primer día, 1 el segundo, etc.
+        $inicioEvento = Carbon::parse('2026-04-01', $this->timezone)->startOfDay();
+        
         $diaActual = $inicioEvento->diffInDays($hoy) + 1;
-        $diasEvento = 3;
+        $diasEvento = 1;
 
-        // Si es antes del evento, que sea 0 (ningún día activo)
-        if($hoy->lt($inicioEvento)) {
-            $diaActual = 0;
+        $apertura = Carbon::parse($ahora->format('Y-m-d') . ' ' . $this->horaInicioAsistencia, $this->timezone);
+        $cierre = $apertura->copy()->addMinutes(30);
+
+        if ($ahora->lt($apertura)) {
+            $estadoAsistencia = 'antes'; 
+        } elseif ($ahora->between($apertura, $cierre)) {
+            $estadoAsistencia = 'durante'; 
+        } else {
+            $estadoAsistencia = 'despues';
         }
 
-        // ELIMINAMOS la línea que limitaba el día al máximo de días del evento
-        // para que si diaActual es 4, 5 o 100, la vista sepa que ya pasó.
-
-        return view('formulario.asistencia', [
+        return view('formularios.asistencia', [
             'diasEvento' => $diasEvento,
-            'diaActual'  => $diaActual
+            'diaActual'  => $diaActual,
+            'estadoAsistencia' => $estadoAsistencia, 
+            'horaApertura' => $apertura->format('H:i'),
+            'horaCierre' => $cierre->format('H:i')
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $inicioEvento = Carbon::parse('2026-03-18')->startOfDay();
-        $diasEvento = 3;
-        $diaActual = $inicioEvento->diffInDays(now()->startOfDay()) + 1;
+        // IMPORTANTE: Usar la misma zona horaria que en el index
+        $ahora = Carbon::now($this->timezone);
+        $inicioEvento = Carbon::parse('2026-04-01', $this->timezone)->startOfDay();
+        $diaActual = $inicioEvento->diffInDays($ahora->copy()->startOfDay()) + 1;
 
-        if($request->dia != $diaActual || $diaActual > $diasEvento || $diaActual < 1){
+        // 1. Validar día correcto
+        if($request->dia != $diaActual || $diaActual > 1 || $diaActual < 1){
             return redirect('/content/objetivos')->with('error','No puedes registrar asistencia en este día');
         }
 
+        // 2. Validar ventana de 30 minutos (Usando la misma zona horaria)
+        $apertura = Carbon::parse($ahora->format('Y-m-d') . ' ' . $this->horaInicioAsistencia, $this->timezone);
+        $cierre = $apertura->copy()->addMinutes(30);
+
+        if (!$ahora->between($apertura, $cierre)) {
+            return redirect('/content/objetivos')->with('error', 'El tiempo de registro terminó a las ' . $cierre->format('H:i'));
+        }
+
+        // 3. Validar si ya registró
         $yaRegistro = Asistencia::where('user_id', Auth::id())
             ->where('dia', $diaActual)
             ->exists();
@@ -59,41 +74,9 @@ class AsistenciaController extends Controller
         Asistencia::create([
             'user_id' => Auth::id(),
             'dia' => $diaActual,
-            'fecha' => now()
+            'fecha' => $ahora // Se guarda con la hora correcta
         ]);
 
         return redirect('/content/objetivos')->with('asistencia','Asistencia exitosa');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Asistencia $asistencia)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Asistencia $asistencia)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Asistencia $asistencia)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Asistencia $asistencia)
-    {
-        //
     }
 }

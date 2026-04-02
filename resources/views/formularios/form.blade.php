@@ -4,9 +4,8 @@
     </div>
 @endif
 
-<div id="datos-cupo" data-disponibles="{{ $cuposDisponibles }}" style="display: none;"></div>
 
-<div class="instruccion alert-info p-3 text-justify">
+<div class="instruccion alert alert-info p-3 text-justify">
     <div>
         <div><b>INSTRUCCIONES:</b></div>
         Para efectuar un registro exitoso, sea tan amable de verificar que sus datos 
@@ -101,34 +100,19 @@
     </div>
 
     <div class="row">
-        <div class="form-group col-12 col-md-3">
+        <div class="form-group col-12 col-md-6">
             <label for="Edad" class="font-weight-bold">Edad</label>
             <input type="number" name="Edad" class="form-control"
                 value="{{isset($emplead1->Edad)?$emplead1->Edad:old('Edad')}}">
         </div>
 
-        <div class="form-group col-12 col-md-4">
+        <div class="form-group col-12 col-md-6">
             <label for="inputSexo" class="font-weight-bold">Sexo:</label>
             <input name="Sexo" id="inputSexo" list="sexo" class="form-control" placeholder="Selecciona"
                 value="{{isset($emplead1->Sexo)?$emplead1->Sexo:old('Sexo')}}">
             <datalist id="sexo">
                 <option value="Hombre"><option value="Mujer"><option value="Otro">
             </datalist>
-        </div>
-
-        <div class="form-group col-12 col-md-5">
-            <label for="Modalidad" class="font-weight-bold">Modalidad</label>
-            <select name="Modalidad" class="form-control">
-                <option value="PRESENCIAL" {{ old('Modalidad', $emplead1->Modalidad ?? '') == 'PRESENCIAL' ? 'selected' : '' }}>PRESENCIAL</option>
-                <option value="VIRTUAL" {{ old('Modalidad', $emplead1->Modalidad ?? '') == 'VIRTUAL' ? 'selected' : '' }}>VIRTUAL</option>
-            </select>
-            <div class="mt-2 text-center text-md-left">
-                @if($cuposDisponibles > 0)
-                    <small class="text-success font-weight-bold">Cupos: {{ $cuposDisponibles }} / 250</small>
-                @else
-                    <small class="text-danger font-weight-bold">Cupos agotados. Solo virtual.</small>
-                @endif
-            </div>
         </div>
     </div>
 
@@ -168,58 +152,16 @@
 
     <hr class="my-4">
 
-    <div class="botones-container d-flex justify-content-between align-items-center mx-md-5">
-        <a href="{{url('/objetivos')}}" class="btn btn-lg btn-outline-secondary shadow-sm px-5">
+    <div class="botones-container d-flex flex-column flex-md-row justify-content-md-between align-items-center mx-md-5">
+        <a href="{{url('/objetivos')}}" class="btn btn-lg btn-outline-secondary shadow-sm px-5 mx-2 mb-3 mb-md-0 w-100 w-md-auto">
             Regresar
         </a>
-        <button type="submit" class="btn btn-lg btn-success px-5 shadow-sm border-0">
+        <button type="submit" class="btn btn-lg btn-success px-5 shadow-sm border-0 w-100 w-md-auto mx-2">
             {{$modo}} registro
         </button>
     </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Si no hay cupo... -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const contenedorCupo = document.getElementById('datos-cupo');
-        const cupos = parseInt(contenedorCupo.getAttribute('data-disponibles'));
-
-        // Si los cupos son 0 o menores, disparamos la alerta
-        if (cupos <= 0) {
-            Swal.fire({
-                title: '<strong>Aviso: Cupos Presenciales Agotados</strong>',
-                icon: 'info',
-                html: `
-                    <div class="text-justify">
-                        <p>Le informamos que el límite de <b>250 asistentes presenciales</b> ha sido alcanzado.</p>
-                        <p>Aún puede realizar su registro para participar de forma <b>Virtual</b> y obtener su constancia siguiendo la transmisión en vivo.</p>
-                    </div>
-                `,
-                showCloseButton: true,
-                focusConfirm: false,
-                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Entendido',
-                confirmButtonColor: '#3085d6',
-                allowOutsideClick: false // Obliga al usuario a leer el aviso
-            });
-
-            // Opcional: Bloquear la opción "Presencial" en el select de modalidad
-            const selectModalidad = document.querySelector('select[name="Modalidad"]');
-            if (selectModalidad) {
-                // Seleccionamos Virtual por defecto
-                selectModalidad.value = "VIRTUAL";
-                
-                // Deshabilitamos la opción presencial para evitar errores
-                Array.from(selectModalidad.options).forEach(option => {
-                    if (option.value === "PRESENCIAL") {
-                        option.disabled = true;
-                        option.text += " (Agotado)";
-                    }
-                });
-            }
-        }
-    });
-
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </section>
 
 <script>

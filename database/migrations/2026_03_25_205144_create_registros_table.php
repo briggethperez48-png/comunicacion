@@ -27,7 +27,6 @@ return new class extends Migration
             $datoR->string('Alcaldia');
             $datoR->integer('Edad');
             $datoR->string('Sexo');
-            $datoR->string('Modalidad');
             $datoR->string('Numero');
             $datoR->string('Eres');
             $datoR->string('email')

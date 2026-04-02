@@ -25,11 +25,11 @@ class ExamenController extends Controller
         $yaTerminado = Examen::where('usuario_id', Auth::id())->exists();
 
         if ($yaTerminado) {
-            return redirect('/objetivos')
+            return redirect('content/objetivos')
                 ->with('error','Ya respondiste la encuesta.');
         }
 
-        $folio = 'SP-2026-' . strtoupper(Str::random(8));
+        $folio = 'SP-MX-2026-' . strtoupper(Str::random(8));
 
         Examen::create([
             'usuario_id' => Auth::id(),
@@ -37,6 +37,7 @@ class ExamenController extends Controller
             'pregunta2' => $request->pregunta2,
             'pregunta3' => $request->pregunta3,
             'sugerencias' => $request->sugerencias,
+            'escala' => $request->escala,
             'folio' => $folio
         ]);
 
