@@ -4,86 +4,107 @@
     <section class="margen">
         <div class="mt-5 mb-5 ml-4 mr-4 shadow rounded justify-content-center text-center">
             <div class="Enca text-center">
-                <h1>
+                <h1 class="pt-2">
                     Ponentes <hr>
                 </h1>
-    @php
-        $ponentes = [
-                [
-                    'id' => 1,
-                    'nombre' => 'Academia Nacional de Medicina de México',
-                    'foto' => 'CONAMEDR.png',
-                    'diapositiva' => 'DiapCONAMED.png',
-                    'institucion' => 'CONAMED',
-                    'descripcion' => 'Descripción uno',
-                    'pais' => 'México'
-                ],
-                [
-                    'id' => 2,
-                    'nombre' => 'Instituto de Investigaciones Jurídicas UNAM',
-                    'foto' => 'UNAM_logo.png', // Cambia por tus nombres de archivo reales
-                    'diapositiva' => 'DiapUNAM.png',
-                    'institucion' => 'UNAM',
-                    'descripcion' => 'Descripción dos',
-                    'pais' => 'México'
-                ],
-                
-            ];
-    @endphp
+                @php
+                    $ponentes = [
+                            [
+                                'id' => 1,
+                                'nombre' => 'Organización Panamericana de la Salud',
+                                'foto' => 'ops.png',
+                                'diapositiva' => 'DiapOPS.png',
+                                'institucion' => 'Organización Mundial de la Salud',
+                                'descripcion' => 'La OPS es la organización internacional especializada en salud pública de las Américas.  Trabaja cada día con los países de la región para mejorar y proteger la salud de su población. Brinda cooperación técnica en salud a sus países miembros, combate las enfermedades transmisibles y ataca los padecimientos crónicos y sus causas, fortalece los sistemas de salud y da respuesta ante situaciones de emergencia y desastres.',
+                                'pais' => 'OMS/OPS'
+                            ],
+                            [
+                                'id' => 2,
+                                'nombre' => 'Dr. Oscar Sosa Hernández',
+                                'foto' => 'sosa.jpg',
+                                'diapositiva' => 'DiapSOSA.png',
+                                'institucion' => 'Hospital Juárez de México',
+                                'descripcion' => 'El Dr. Oscar Sosa Hernández es Médico Especialista en Epidemiología e Infectología, con una destacada trayectoria en el Hospital Juárez de México, donde se desempeña como Jefe de Departamento. Su labor ha sido fundamental en el diseño e implementación de estrategias críticas para la Seguridad del Paciente y la vigilancia epidemiológica de alta especialidad.',
+                                'pais' => 'México'
+                            ],
+                            [
+                                'id' => 3,
+                                'nombre' => 'Secretaría de Marina',
+                                'foto' => 'semar.jpeg',
+                                'diapositiva' => 'DiapSEMAR.png',
+                                'institucion' => 'SEMAR',
+                                'descripcion' => 'Ejerce el Poder Marítimo Nacional, protege los intereses marítimos, mantiene el estado de derecho en las zonas marinas mexicanas, costas, ríos, zonas lacustres y recintos portuarios, así como aplica la Autoridad Marítima Nacional, para garantizar la soberanía e impulsar el desarrollo del país en los términos que establece la Constitución Política de los Estados Unidos Mexicanos, las leyes que de ella deriven y los tratados internacionales.',
+                                'pais' => 'México'
+                            ],
+                            [
+                                'id' => 4,
+                                'nombre' => 'Mtra. Blanca Estela Cervantes Guzmán',
+                                'foto' => 'blanca.jpg',
+                                'diapositiva' => 'DiapBLANCA.png',
+                                'institucion' => 'Hospital Juárez de México',
+                                'descripcion' => 'La Mtra. Blanca Estela Cervantes Guzmán es una destacada líder en el sector salud, reconocida por su trayectoria de más de 30 años en el Hospital Juárez de México, donde actualmente encabeza la Jefatura de Servicios de Enfermería. Su gestión se caracteriza por un profundo sentido humanista y una búsqueda constante de la excelencia en la práctica clínica y la seguridad del paciente.',
+                                'pais' => 'México'
+                            ],
+                            [
+                                'id' => 5,
+                                'nombre' => 'Consejo de Salubridad General',
+                                'foto' => 'csg.jpg',
+                                'diapositiva' => 'DiapCSG.png',
+                                'institucion' => 'Consejo de Salubridad General',
+                                'descripcion' => 'La misión del Órgano Colegiado del Consejo de Salubridad General es el de identificar asuntos prioritarios de salubridad general -incluyendo crisis y epidemias-, convocar intersectorialmente a su análisis y generación de alternativas de política, lograr decisiones de Estado sobre ellas, instrumentar ágilmente acuerdos, disposiciones y prácticas que las impulsen, establecer el marco de monitoreo y evaluación de estas y dar seguimiento a los responsables de su ejecución.',
+                                'pais' => 'México'
+                            ],
+                            
+                        ];
+                @endphp
 
                 <div class="ponentes">
-                    @foreach($ponentes as $ponente)
-                        <div class="ponente">
-                            <button class="popClose" popovertarget="ponente-{{ $ponente['id'] }}">
-                                <img src="{{ asset('img/' . $ponente['foto']) }}" alt="" class="rounded-circle">
-                            </button>
-                            
-                            <br><br>
+    @foreach($ponentes as $ponente)
+        <div class="ponente">
+            <button class="popClose" popovertarget="ponente-{{ $ponente['id'] }}">
+                <img src="{{ asset('img/' . $ponente['foto']) }}" alt="" class="rounded-circle">
+            </button>
+            
+            <br><br>
 
-                            <button popovertarget="ponente-{{ $ponente['id'] }}">
-                                <h3>{{ $ponente['nombre'] }}</h3>
-                            </button>
+            <button class="btn-nombre" popovertarget="ponente-{{ $ponente['id'] }}">
+                <h3>{{ $ponente['nombre'] }}</h3>
+            </button>
 
-                            <div class="popOpen" popover id="ponente-{{ $ponente['id'] }}">
-                                <div class="diaPon">
-                                    <img src="{{ asset('img/' . $ponente['diapositiva']) }}" alt="">
-                                </div>
-
-                                <div class="contentPop rounded-3">
-                                    <div class="innerImg">
-                                        <img src="{{ asset('img/basePop.png') }}" alt="" 
-                                            style="width: 50%; height:auto;" class="rounded-circle">
-                                    </div>
-                                    <div class="innerPop">
-                                        <div class="nomCurso text-center">
-                                            <h1>Seminario: Manos que cuidan, manos que salvan</h1>
-                                            <h2>La seguridad del paciente comienza contigo</h2>
-                                        </div>
-                                        <div class="nomPonente" style="height:12%; width: auto;">
-                                            <h2>Ponente Invitado:</h2>
-                                            <h1>{{ $ponente['nombre'] }}</h1>
-                                        </div>
-                                        <br>
-                                        <div class="innerDesc mt-2" style="text-align: justify;">
-                                            <p>{{ $ponente['descripcion'] }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <button class="popOut" 
-                                        popovertarget="ponente-{{ $ponente['id'] }}" 
-                                        popovertargetaction="hide">
-                                    Cerrar
-                                </button>
-                            </div>
-
-                            <div class="info">
-                                <h3 class="ocup">{{ $ponente['institucion'] }}</h3>
-                                <h3 class="lugar">{{ $ponente['pais'] }}</h3>
-                            </div>
-                        </div>
-                    @endforeach
+            <div class="popOpen" popover id="ponente-{{ $ponente['id'] }}">
+                <div class="diaPon">
+                    <img src="{{ asset('img/' . $ponente['diapositiva']) }}" alt="">
                 </div>
+                <div class="contentPop rounded-3">
+                    <div class="innerImg">
+                        <img src="{{ asset('img/' . $ponente['foto']) }}" alt="" style="width: 50%; height:auto;" class="rounded-circle">
+                    </div>
+                    <div class="innerPop">
+                        <div class="nomCurso text-center">
+                            <h1>Seminario: Manos que cuidan, manos que salvan</h1>
+                            <h2>La seguridad del paciente comienza contigo</h2>
+                        </div>
+                        <div class="nomPonente">
+                            <h2>Ponente Invitado:</h2>
+                            <h1>{{ $ponente['nombre'] }}</h1>
+                        </div>
+                        <div class="innerDesc mt-2">
+                            <p>{{ $ponente['descripcion'] }}</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="popOut" popovertarget="ponente-{{ $ponente['id'] }}" popovertargetaction="hide">
+                    Cerrar
+                </button>
+            </div>
+
+            <div class="info">
+                <h3 class="ocup">{{ $ponente['institucion'] }}</h3>
+                <h3 class="lugar">{{ $ponente['pais'] }}</h3>
+            </div>
+        </div>
+    @endforeach
+</div>
             </div>
         </div>
     </section>

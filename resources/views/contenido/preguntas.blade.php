@@ -14,7 +14,7 @@
                         <div>
                             <div class="cuestion">
                                 <i class="fa-solid fa-chevron-down"></i>
-                                <span>¿Quién organiza el Seminario del Día Mundial de la Higiene de Manos?</span>
+                                <span>¿Quién organiza el <i>Seminario: Manos que cuidan, manos que salvan</i>?</span>
                             </div>
                             <div class="respuesta">
                                 Organizado por la Secretaría de Salud de la Ciudad de México, a través de la Oficina de la Responsable Estatal de Calidad.
@@ -25,7 +25,7 @@
                         <div>
                             <div class="cuestion">
                                 <i class="fa-solid fa-chevron-down"></i>
-                                <span>¿Dónde se realiza el Seminario del Día Mundial de la Higiene de Manos?</span>
+                                <span>¿Dónde se realiza el <i>Seminario: Manos que cuidan, manos que salvan</i>?</span>
                             </div>
                             <div class="respuesta">
                                 Se llevará a cabo de manera virtual, utilizando la plataforma Zoom.
@@ -36,10 +36,10 @@
                         <div>
                             <div class="cuestion">
                                 <i class="fa-solid fa-chevron-down"></i>
-                                <span>¿Cuando se realizará el Seminario del Día Mundial de la Higiene de Manos?</span>
+                                <span>¿Cuando se realizará el <i>Seminario: Manos que cuidan, manos que salvan</i>?</span>
                             </div>
                             <div class="respuesta">
-                                El 30 de abril de 2025.
+                                El 22 de abril del 2026.
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div>
                             <div class="cuestion">
                                 <i class="fa-solid fa-chevron-down"></i>
-                                <span>El 30 de abril de 2025.</span>
+                                <span>¿El seminario tiene algún costo?</span>
                             </div>
                             <div class="respuesta">
                                 La inscripción es gratuita.
@@ -61,7 +61,8 @@
                                 <span>¿Cómo puedo inscribirme?</span>
                             </div>
                             <div class="respuesta">
-                                Complete el formulario en el enlace proporcionado para el "Registro Participante".
+                                Complete el formulario en el enlace proporcionado para el 
+                                <a href="{{url('/formulario/create')}}">"Registro Participante"</a>.
                             </div>
                         </div>
                     </div>
@@ -72,7 +73,7 @@
                                 <span>¿Quiénes pueden participar?</span>
                             </div>
                             <div class="respuesta">
-                                Abierto a todo público, especialmente dirigido a profesionales de la salud interesados en la Calidad de la Atención.
+                                Abierto a todo público, especialmente dirigido a Personal de salud operativo, responsables de calidad, líderes de servicio y enlaces de PCI.
                             </div>
                         </div>
                     </div>
@@ -80,10 +81,10 @@
                         <div>
                             <div class="cuestion">
                                 <i class="fa-solid fa-chevron-down"></i>
-                                <span>¿Cuál es el objetivo del Seminario del Día Mundial de la Higiene de Manos?</span>
+                                <span>¿Cuál es el objetivo del <i>Seminario: Manos que cuidan, manos que salvan</i>?</span>
                             </div>
                             <div class="respuesta">
-                                El objetivo más vergas
+                                Fortalecer, conforme a la estrategia multimodal de la OMS, las competencias técnicas, epidemiológicas y conductuales del personal de salud para la adecuada higiene de manos, mediante capacitación, disponibilidad de insumos, monitoreo y promoción de una cultura de seguridad, a fin de prevenir las IAAS y mejorar la seguridad del paciente.
                             </div>
                         </div>
                     </div>
@@ -94,7 +95,7 @@
                                 <span>¿Se otorgan certificados?</span>
                             </div>
                             <div class="respuesta">
-                                Se otorgará una constancia de participación, en un plazo no mayor a 15 días hábiles tras completar la "Encuesta Satisfacción".
+                                Se otorgará una constancia de participación, en un plazo no mayor a 15 días hábiles tras completar la <a href="{{url('/encuesta')}}">"Encuesta de Satisfacción"</a>.
                             </div>
                         </div>
                     </div>
@@ -116,7 +117,7 @@
                                 <span>¿Cuándo recibiré mi constancia?</span>
                             </div>
                             <div class="respuesta">
-                                Tras concluir el Seminario del Día Mundial de la Higiene de Manos y responder la Encuesta de Satisfacción, recibirá su constancia por correo en un plazo no mayor a 15 días hábiles.
+                                Tras concluir el <i>Seminario: Manos que cuidan, manos que salvan</i> y responder la <a href="{{url('/encuesta')}}">"Encuesta de Satisfacción"</a>, recibirá su constancia por correo en un plazo no mayor a 15 días hábiles.
                             </div>
                         </div>
                     </div>
@@ -127,7 +128,7 @@
                                 <span>¿Tiene más preguntas?</span>
                             </div>
                             <div class="respuesta">
-                                Contáctenos a: fabiola.beltran.salud.cdmx@gmail.com o al 55 5132 1250 ext. 1339, 1356 y 1424.
+                                Contáctenos a: <a href="mailto:fabiola.beltran.salud.cdmx@gmail.com">fabiola.beltran.salud.cdmx@gmail.com</a> o al 55 5132 1250 ext. 1339, 1356 y 1424.
                             </div>
                         </div>
                     </div>
