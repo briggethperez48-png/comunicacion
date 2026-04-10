@@ -5,9 +5,9 @@ use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\ExamenController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/formulario/create', [RegistroController::class, 'create']);
 Route::post('/formulario', [RegistroController::class, 'store']);
@@ -53,7 +53,7 @@ Route::prefix('content')->group(function () {
     Route::view('/preguntas', 'contenido/preguntas');
     Route::view('/programa', 'contenido/programa');
     Route::view('/avisoprivacidad', 'contenido/aviso');
-    Route::view('/terminosycondiciones', 'contenido/terminos');
+    // Route::view('/terminosycondiciones', 'contenido/terminos');
 });
 
 //Nimodillo

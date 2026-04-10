@@ -43,6 +43,14 @@
                         </ol>
                     </div>
                 </div>
+                <div class="inferior d-flex justify-content-end mx-4">
+                    <div>
+                        <a href="{{url('/content/ponentes')}}">
+                        <button type="submit" class="btn btn-dark mb-4 mt-1 px-4 py-2 shadow-sm rounded border-0"
+                                style="color:#fff; font-size:20px; font-weight:600;">Siguiente</button>
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
     </section>

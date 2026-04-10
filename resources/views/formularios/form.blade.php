@@ -5,7 +5,7 @@
 @endif
 
 
-<div class="instruccion alert alert-info p-3 text-justify">
+<div class="instruccion alert alert-info p-3 text-right">
     <div>
         <div><b>INSTRUCCIONES:</b></div>
         Para efectuar un registro exitoso, sea tan amable de verificar que sus datos 
@@ -153,7 +153,7 @@
     <hr class="my-4">
 
     <div class="botones-container d-flex flex-column flex-md-row justify-content-md-between align-items-center mx-md-5">
-        <a href="{{url('/objetivos')}}" class="btn btn-lg btn-outline-secondary shadow-sm px-5 mx-2 mb-3 mb-md-0 w-100 w-md-auto">
+        <a href="{{url('/content/')}}" class="btn btn-lg btn-outline-secondary shadow-sm px-5 mx-2 mb-3 mb-md-0 w-100 w-md-auto">
             Regresar
         </a>
         <button type="submit" class="btn btn-lg btn-success px-5 shadow-sm border-0 w-100 w-md-auto mx-2">

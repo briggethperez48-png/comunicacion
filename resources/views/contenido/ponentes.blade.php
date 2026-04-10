@@ -30,7 +30,7 @@
                             [
                                 'id' => 3,
                                 'nombre' => 'Secretaría de Marina',
-                                'foto' => 'semar.jpeg',
+                                'foto' => 'semar.png',
                                 'diapositiva' => 'DiapSEMAR.png',
                                 'institucion' => 'SEMAR',
                                 'descripcion' => 'Ejerce el Poder Marítimo Nacional, protege los intereses marítimos, mantiene el estado de derecho en las zonas marinas mexicanas, costas, ríos, zonas lacustres y recintos portuarios, así como aplica la Autoridad Marítima Nacional, para garantizar la soberanía e impulsar el desarrollo del país en los términos que establece la Constitución Política de los Estados Unidos Mexicanos, las leyes que de ella deriven y los tratados internacionales.',
@@ -39,7 +39,7 @@
                             [
                                 'id' => 4,
                                 'nombre' => 'Mtra. Blanca Estela Cervantes Guzmán',
-                                'foto' => 'blanca.jpg',
+                                'foto' => 'blanca.png',
                                 'diapositiva' => 'DiapBLANCA.png',
                                 'institucion' => 'Hospital Juárez de México',
                                 'descripcion' => 'La Mtra. Blanca Estela Cervantes Guzmán es una destacada líder en el sector salud, reconocida por su trayectoria de más de 30 años en el Hospital Juárez de México, donde actualmente encabeza la Jefatura de Servicios de Enfermería. Su gestión se caracteriza por un profundo sentido humanista y una búsqueda constante de la excelencia en la práctica clínica y la seguridad del paciente.',
@@ -96,6 +96,9 @@
                 <button class="popOut" popovertarget="ponente-{{ $ponente['id'] }}" popovertargetaction="hide">
                     Cerrar
                 </button>
+                <div class="mensaje">
+                    <p style="color: whitesmoke;"><i>O presione <b>Esc</b> para salir</i></p>
+                </div>
             </div>
 
             <div class="info">
@@ -105,6 +108,14 @@
         </div>
     @endforeach
 </div>
+            </div>
+            <div class="inferior d-flex justify-content-end mx-4">
+                <div>
+                    <a href="{{url('/formulario/create')}}">
+                    <button type="submit" class="btn btn-dark mb-4 mt-1 px-4 py-2 shadow-sm rounded border-0"
+                            style="color:#fff; font-size:20px; font-weight:600;">Siguiente</button>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

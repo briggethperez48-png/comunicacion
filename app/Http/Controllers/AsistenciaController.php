@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class AsistenciaController extends Controller
 {
-    private $horaInicioAsistencia = '17:20:00'; 
+    private $horaInicioAsistencia = '15:00:00'; 
     private $timezone = 'America/Mexico_City'; // La definimos como propiedad para no repetir
 
     public function index()
@@ -17,7 +17,7 @@ class AsistenciaController extends Controller
         $ahora = Carbon::now($this->timezone);
         $hoy = $ahora->copy()->startOfDay();
         
-        $inicioEvento = Carbon::parse('2026-04-01', $this->timezone)->startOfDay();
+        $inicioEvento = Carbon::parse('2026-04-06', $this->timezone)->startOfDay();
         
         $diaActual = $inicioEvento->diffInDays($hoy) + 1;
         $diasEvento = 1;
@@ -46,7 +46,7 @@ class AsistenciaController extends Controller
     {
         // IMPORTANTE: Usar la misma zona horaria que en el index
         $ahora = Carbon::now($this->timezone);
-        $inicioEvento = Carbon::parse('2026-04-01', $this->timezone)->startOfDay();
+        $inicioEvento = Carbon::parse('2026-04-06', $this->timezone)->startOfDay();
         $diaActual = $inicioEvento->diffInDays($ahora->copy()->startOfDay()) + 1;
 
         // 1. Validar día correcto

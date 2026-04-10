@@ -27,7 +27,6 @@
                                         @if($dia == $diaActual)
     
                                             @if($estadoAsistencia == 'antes')
-                                                {{-- ESTADO: AÚN NO ABRE --}}
                                                 <div class="alert alert-info p-2 mb-0 border-0 shadow-sm">
                                                     <i class="fas fa-clock mb-1"></i><br>
                                                     <small class="font-weight-bold">PRÓXIMAMENTE</small><br>
@@ -35,7 +34,6 @@
                                                 </div>
 
                                             @elseif($estadoAsistencia == 'durante')
-                                                {{-- ESTADO: ABIERTO --}}
                                                 <div>
                                                     <img src="{{asset('img/seminario.png')}}" alt="" class="img-fluid mb-2" style="width: 40%; height:auto;">
                                                 </div>
@@ -46,12 +44,11 @@
                                                         Confirmar asistencia
                                                     </button>
                                                     <small class="text-success d-block mt-2 font-weight-bold">
-                                                        ¡Registro abierto hasta las {{ $horaCierre }}!
+                                                        Registro abierto hasta las {{ $horaCierre }}.
                                                     </small>
                                                 </form>
 
                                             @else
-                                                {{-- ESTADO: YA CERRÓ --}}
                                                 <div>
                                                     <img src="{{asset('img/germenes.png')}}" alt="" class="img-fluid mb-2" style="width: 40%; height:auto;">
                                                 </div>

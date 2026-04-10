@@ -47,9 +47,6 @@
                     <li class="li">
                         <a class="a" href="{{url('/content/contactos')}}">Contacto</a>
                     </li>
-                    <li class="li">
-                        <a class="a" href="{{url('/content/terminosycondiciones')}}">Términos</a>
-                    </li>
                 </ul>
             </nav>
         </div>

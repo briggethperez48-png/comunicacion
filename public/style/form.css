@@ -10,10 +10,6 @@
         #slcPais{
             width: 200px;
         }
-        a{
-            color: black;
-            text-decoration: none;
-        }
 
 .content .header2 h2{
     justify-self: center;
@@ -45,12 +41,15 @@
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+
+    text-transform: uppercase;
 }
 .content input:focus,
 .content select:focus,
 .content datalist:focus,
 .content textarea:focus{
-    border-color: #027a35;
+    border-color: #b28e5c;
+    box-shadow: 0px 0px 10px rgba(88,89,90, 0.6);
 }
 .content .GestorCalidad label{
     margin-right: 10px;
@@ -122,7 +121,10 @@ input[type="radio"]:hover {
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(88,89,90, 0.5);
 }
-
+ .Global label {
+    text-align: left;
+    margin-left: 10px;
+ }
 .range-container {
         position: relative;
         width: 100%;

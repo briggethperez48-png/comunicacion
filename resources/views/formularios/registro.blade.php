@@ -2,7 +2,7 @@
 @section('title', 'Registro')
 @section('content')
     <section class="margen">
-        <div class="p-1 mt-5 mb-5 ml-4 mr-4 shadow rounded justify-content-center text-center">
+        <div class="p-1 mt-5 mb-5 ml-4 mr-4 shadow rounded justify-content-center text-left">
             <section class="content mt-5">
                 <div clas="">
                     <h2>

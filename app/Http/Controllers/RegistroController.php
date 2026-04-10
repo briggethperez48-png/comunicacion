@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class RegistroController extends Controller
 {
@@ -96,15 +97,17 @@ class RegistroController extends Controller
             'Sexo' => 'required',
             'Numero' => 'required|max:20', 
             'Eres' => 'required',
-            'email' => 'required|email|unique:users,email', // Evita correos duplicados
+            'email' => 'required|email|unique:users,email', 
             'password' => 'required|min:8',
         ];
+
         $mensaje=[
             'required'=>'El campo ":attribute" es requerido.'
         ];
         $this->validate($request,$campos,$mensaje);
 
-        $datosUsuario = request()->except('_token','email','password');
+        // $datosUsuario = request()->except('_token','email','password');
+        $datosUsuario = request()->except('_token');
         
 
         foreach ($datosUsuario as $key => $value) {
@@ -113,10 +116,12 @@ class RegistroController extends Controller
             }
         }
 
+        $psswdE = Crypt::encryptString($request->password);
+
         $user = User::create([
             'name' => $request->Nombre,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => $request->password
         ]);
             Auth::login($user);
         
@@ -131,9 +136,9 @@ class RegistroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Registro $registro)
+    public function show($id)
     {
-        //
+        
     }
 
     /**

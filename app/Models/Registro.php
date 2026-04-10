@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Crypt;
 
 class Registro extends Model
 {
@@ -23,6 +24,9 @@ class Registro extends Model
             'Sexo',
             'Modalidad',
             'Numero',
-            'Eres'
+            'Eres',
+            'email',
+            'password'
     ];
+
 }

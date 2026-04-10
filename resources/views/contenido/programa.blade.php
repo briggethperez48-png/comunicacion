@@ -8,7 +8,7 @@
             </div>
             <div class="container mt-2 mb-5">
                 <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-header bg-dark text-white py-3">
+                    <div class="card-header text-white py-3" style="background-color: #55585a;">
                         <h2 class="h4 mb-0 text-center">Detalles del Evento - 22 de Abril</h2>
                     </div>
                     <div class="card-body bg-light">
@@ -28,7 +28,7 @@
 
                 <div class="table-responsive shadow-sm rounded">
                     <table class="table table-hover table-striped mb-0 align-middle">
-                        <thead class="table-dark">
+                        <thead class="theTable" style="background-color:#55585a;">
                             <tr>
                                 <th scope="col" style="width: 15%;">Horario</th>
                                 <th scope="col" style="width: 45%;">Tema</th>

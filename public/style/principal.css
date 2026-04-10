@@ -6,7 +6,7 @@ a {
     transition: 200ms ease-in-out;
 }
 a:hover {
-    color: #266cb4;
+    color: #b28e5c;
     font-weight: 600;
 }
 p {
@@ -38,7 +38,7 @@ p {
 }
 .object {
     font-weight: 800;
-    color: #73cae6;
+    color: #b28e5c;
 }
 .objetivo {
     border-style: solid;
@@ -50,7 +50,7 @@ p {
 
 
     transition: 200ms ease-in-out;
-}  
+}
 .objetivo:hover {
     cursor: pointer;
     background-color: #55585a;
@@ -58,19 +58,20 @@ p {
 
 
     transform: translate(10px,-10px);
-    box-shadow: -8px 8px 0 rgba(38,108,180,1);
+    box-shadow: -8px 8px 0 rgba(157,33,72,1);
 }
-
 
     .ponentes{
         margin: 50px 20px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
+        gap: 10%;
         justify-items: center;
+        align-items: baseline;
 
         text-align: center;
         }
+
         .ponentes>div,
         .ponentes button{
             width: 30%;
@@ -78,7 +79,7 @@ p {
             background-color: transparent;
             border-style: none;
 
-
+            justify-content: center;
             justify-self: center;
             text-align: center;
         }
@@ -88,17 +89,17 @@ p {
         .ponentes img,
         .ponentes button{
             text-align: center;
-            width: 100%;
+            width: 80%;
 
             transition: all 300ms ease-in;
         }
         .ponentes img:hover{
             box-shadow: 0px 0px 10px rgba(0,0,0, 0.4);
         }
-       
+
         .ponentes button h3{
             text-align: center;
-            color: #266cb4;
+            color: #9d2148;
             font-weight: 500;
             font-size: 16px;
 
@@ -108,13 +109,16 @@ p {
             text-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
         }
         .ponentes button h3:hover{
-            color: #266cb4;
+            color: #9d2148;
             font-weight: 700;
         }
-        .ponentes .ponente .popOpen img,
-        .ponentes .ponenteA .popOpen img{
+        .ponentes .ponente .popOpen .diaPon img{
             border-radius: 0;
             border: none;
+
+            width: 80%;
+            min-width: 200px;
+            height: auto;
 
             animation: popOpen 0.3s ease-out forwards;
         }   @keyframes popOpen{
@@ -132,8 +136,7 @@ p {
             max-width: 260px;
             text-align: center;
         }
-        .ponentes .ponente .popOpen,
-        .ponentes .ponenteA .popOpen{
+        .ponentes .ponente .popOpen {
             position: fixed;
             top: 0;
             bottom: 0;
@@ -148,8 +151,9 @@ p {
             justify-items: center;
 
 
-            width: auto;
+            width: 100vw;
             height: 100vh;
+            overflow-y: hidden;
         }
         .ponentes .popOpen .popOut{
             background-color: #b28e5c;
@@ -161,13 +165,20 @@ p {
             font-weight: 500;
             color: white;
 
+            width: 50%;
+            margin-right: 25%;
+            margin-left: 25%;
 
             animation: popOpen 0.3s ease-out forwards;
-        }  
+        }
         .ponentes .popOpen .popOut:hover{
             box-shadow: 5px 5px 10px rgba(0,0,0, 0.4);
             text-shadow: 0px 0px 8px rgba(0,0,0, 0.6);
             padding: 9px 0;
+        }
+        .popOpen .mensaje {
+            margin-top: 5px;
+            animation: popOpen 0.3s ease-out forwards;
         }
         .ponentes .info h3{
             font-size: 16px;
@@ -177,7 +188,7 @@ p {
             color: #55585a;
         }
         .ponentes .info .lugar{
-            color: #9d2148;
+            color: #b28e5c;
         }
     .ponente .popOpen .contentPop {
         position: absolute;
@@ -200,7 +211,7 @@ p {
 .preguntasFrec .pregunta i{
     font-size: 20px;
     font-weight: 700;
-    color: #266cb4;
+    color: #9d2148;
 }
 .preguntasFrec .pregunta .cuestion {
     position: relative;
@@ -208,9 +219,9 @@ p {
     border-style: solid;
     border-radius: 10px;
     border-width: 2px;
-    border-color: #73cae6;
+    border-color: #9d2148;
     background-color: #fff;
-    box-shadow: -3px -3px 0 rgba(38,108,180,1);
+    box-shadow: -3px -3px 0 rgba(178,142,92,1);
     padding: 0 8px 0 8px;
 
     transition: 200ms ease-in;
@@ -218,11 +229,12 @@ p {
 .preguntasFrec .pregunta .cuestion:hover {
     cursor: pointer;
     transform: scale(1.03);
-    box-shadow: -5px -5px 0 rgba(38,108,180,1);
+    box-shadow: -5px -5px 0 rgba(178,142,92,1);
     background-color: #fffae9;
 }
 .preguntasFrec .pregunta .cuestion.activo {
-    background-color: #000;
+    background-color: #9d2148;
+    border-color: #b28e5c;
     box-shadow: -3px 3px 0 rgba(88,89,90,1);
     transition: 200ms ease-in;
 }
@@ -249,7 +261,7 @@ p {
     transition: all 400ms ease-in-out;
     /* transform: translateY(-100px); */
     opacity: 0;
-}  
+}
 .preguntasFrec .pregunta .respuesta.activo{
     margin: -2px 10px 0 10px;
     padding: 10px 8px 0 8px;
@@ -260,12 +272,15 @@ p {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-width: 2px;
-    border-color: #73cae6;
+    border-color: #b28e5c;
     color: #55585a;
 
     max-height: 500px;
     opacity: 1;
 }
+    .theTable thead{
+        background-color: #55585a;
+    }
 
     /*Responsive*/
         /*Desktop*/
@@ -279,15 +294,29 @@ p {
 
         .ponente{
             flex: 0 0 250px;
-            max-width: 250px;
+            min-width: 250px;
         }
 
         .ponente img{
             width: 100%;
         }
 
-        .ponentes button{
+        .ponentes .ponente .popOpen img {
+            width: 60%;
+        }
+    }
+     @media (min-width: 991px) and (max-width: 1190px){
+        .ponentes{
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .ponente{
+            max-width: 320px;
+        }
+        .ponentes .popOut{
             width: 80%;
+            margin: 5px 10% 0 10%;
         }
     }
     @media (min-width: 768px) and (max-width: 991px){
@@ -298,6 +327,10 @@ p {
 
         .ponente{
             max-width: 320px;
+        }
+        .ponentes .popOut{
+            width: 80%;
+            margin: 5px 10% 0 10%;
         }
     }
         /*Movil*/
@@ -312,7 +345,7 @@ p {
         opacity: 1;
 
         background-color: rgba(255, 255, 255, 0.8);
-        
+
         height: 80%;
         width: 80%;
         box-shadow: 0 0 10px rgba(0,0,0, 0.6);
@@ -356,7 +389,7 @@ p {
         }
         .ponentes{
             display: flex;
-            flex-flow: column; 
+            flex-flow: column;
             justify-self: center;
         }
         .ponentes img,
@@ -368,11 +401,11 @@ p {
             justify-content: center;
         }
     }
-    
+
 @media only screen and (max-width: 480px){
         .ponentes{
         display: flex;
-        flex-flow: column; 
+        flex-flow: column;
         justify-self: center;
         }
     }
