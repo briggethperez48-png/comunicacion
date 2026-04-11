@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
 
 class RegistroController extends Controller
 {
@@ -70,10 +70,10 @@ class RegistroController extends Controller
         ];
 
         $campos = [
-            'Nombre' => 'required|string|max:100|regex:/^[a-zA-Z0-9ñÑ\s]+$/u',
-            'ApellidoPaterno' => 'required|string|max:100|regex:/^[a-zA-Z0-9ñÑ\s]+$/u',
-            'ApellidoMaterno' => 'required|string|max:100|regex:/^[a-zA-Z0-9ñÑ\s]+$/u',
-            'Profesion' => 'required|string|max:150|regex:/^[a-zA-Z0-9ñÑ\s]+$/u',
+            'Nombre' => 'required|string|max:100',
+            'ApellidoPaterno' => 'required|string|max:100',
+            'ApellidoMaterno' => 'required|string|max:100',
+            'Profesion' => 'required|string|max:150',
             'Institucion' => 'required',
             'UnidadMedica' => 'required',
             'EstadoProcedencia' => 'required',
@@ -109,19 +109,25 @@ class RegistroController extends Controller
         // $datosUsuario = request()->except('_token','email','password');
         $datosUsuario = request()->except('_token');
         
-
+            //Hace magia con los datos para que el pendejo del usuario 
+            //no kgue mi BD
         foreach ($datosUsuario as $key => $value) {
-            if($key != 'email' && $key != 'password'){
+            if ($key != 'email' && $key != 'password') {
+
+                $value = str_replace(
+                    ['Á','É','Í','Ó','Ú','á','é','í','ó','ú'],
+                    ['A','E','I','O','U','A','E','I','O','U'],
+                    $value
+                );
+
                 $datosUsuario[$key] = strtoupper($value);
             }
         }
 
-        $psswdE = Crypt::encryptString($request->password);
-
         $user = User::create([
             'name' => $request->Nombre,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
             Auth::login($user);
         

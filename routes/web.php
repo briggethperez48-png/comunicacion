@@ -53,6 +53,7 @@ Route::prefix('content')->group(function () {
     Route::view('/preguntas', 'contenido/preguntas');
     Route::view('/programa', 'contenido/programa');
     Route::view('/avisoprivacidad', 'contenido/aviso');
+    Route::view('/lostPassword', 'contenido/remPsswd');
     // Route::view('/terminosycondiciones', 'contenido/terminos');
 });
 

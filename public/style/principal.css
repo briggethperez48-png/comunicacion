@@ -1,11 +1,11 @@
-a {
+.Tarjeta .BodyCard a, a {
     color: #9d2148;
     font-weight: 600;
     text-decoration: none;
 
     transition: 200ms ease-in-out;
 }
-a:hover {
+.Tarjeta .BodyCard a:hover, a:hover {
     color: #b28e5c;
     font-weight: 600;
 }

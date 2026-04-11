@@ -28,7 +28,7 @@
 
                 <div class="table-responsive shadow-sm rounded">
                     <table class="table table-hover table-striped mb-0 align-middle">
-                        <thead class="theTable" style="background-color:#55585a;">
+                        <thead class="theTable">
                             <tr>
                                 <th scope="col" style="width: 15%;">Horario</th>
                                 <th scope="col" style="width: 45%;">Tema</th>

@@ -56,5 +56,16 @@
             });
         });
     </script>
+        <!-- Intento para quitar los acentos, se pasó al controlador-->
+    <script>
+        function dataTransform(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        const input = document.getElementById("datos");
+        datos.addEventListener("datos",  (e) => {
+            e.target.value = dataTransform(e.target.value);
+        });
+    </script>
 </body>
 </html>
